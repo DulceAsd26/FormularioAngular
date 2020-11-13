@@ -15,7 +15,7 @@ export class PaisService {
     return this.http.get('https://restcountries.eu/rest/v2/lang/es')
       .pipe(
         map((resp: any[]) =>
-         resp.map( pais =>({nombre: pais.name, codido: pais.alpha3Code})
+         resp.map( pais =>({nombre: pais.name, codigo: pais.alpha3Code})
           )
         )
   );
