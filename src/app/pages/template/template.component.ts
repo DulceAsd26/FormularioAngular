@@ -9,9 +9,9 @@ import { NgForm } from '@angular/forms';
 export class TemplateComponent implements OnInit {
 
   usuario = {
-    nombre:'Adriana',
-    apellido: 'Fernandez',
-    correo: 'juarez.dulce@gmail.com'
+    nombre:'Araceli',
+    apellido: 'Juarez',
+    correo: 'araceli.juarez@gmail.com'
   }
 
 
@@ -23,6 +23,15 @@ export class TemplateComponent implements OnInit {
 
   guardar( forma: NgForm){
     console.log(forma);
+
+    if( forma.invalid ){
+
+      Object.values( forma.controls ).forEach( control =>{
+        control.markAsTouched();
+      });
+
+      return;
+    }
     console.log(forma.value);
   }
 
