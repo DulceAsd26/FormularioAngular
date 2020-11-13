@@ -9,10 +9,10 @@ import { NgForm } from '@angular/forms';
 export class TemplateComponent implements OnInit {
 
   usuario = {
-    nombre:'Adriana'
+    nombre:''
   }
 
-  
+
   constructor() { }
 
   ngOnInit(): void {
