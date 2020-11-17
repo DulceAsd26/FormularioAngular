@@ -14,6 +14,7 @@ export class ReactiveComponent implements OnInit {
   constructor( private fb: FormBuilder) { 
 
     this.crearFomulario();
+    this.cargarDataAlFormulario();
 
   }
 
@@ -40,6 +41,10 @@ export class ReactiveComponent implements OnInit {
     return this.forma.get('direccion.ciudad').invalid && this.forma.get('direccion.ciudad').touched
   }
 
+
+
+
+
   crearFomulario(){
 
     this.forma= this.fb.group({
@@ -52,12 +57,22 @@ export class ReactiveComponent implements OnInit {
       })
     });
 
-
   }
 
+  cargarDataAlFormulario(){
 
+    //this.forma.setValue({
+      this.forma.reset({
+      nombre: 'Dulce',
+      apellido: 'Soledad',
+      correo: 'juarez.dulce@gmail.com',
+      direccion: {
+        distrito: 'Ontario',
+        ciudad: 'Ottawa'
+      }
+    });
 
-
+  }
 
 
 
@@ -71,13 +86,18 @@ export class ReactiveComponent implements OnInit {
       if( control instanceof FormGroup){
         Object.values( control.controls ).forEach( control => control.markAsTouched());
       }else{
-
         control.markAsTouched();
       }
-        control.markAsTouched();
+
+
       });
 
     }
+
+    //Posteo de la informacion 
+    this.forma.reset({
+      nombre: 'Sin nombre'
+    });
   }
 
 }
