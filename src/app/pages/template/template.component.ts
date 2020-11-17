@@ -10,10 +10,10 @@ import { PaisService } from 'src/app/services/pais.service';
 export class TemplateComponent implements OnInit {
 
   usuario = {
-    nombre:'Araceli',
-    apellido: 'Juarez',
-    correo: 'araceli.juarez@gmail.com',
-    pais: 'CRI'
+    nombre:'',
+    apellido: '',
+    correo: '',
+    pais: ''
   }
 
   paises: any[] = [];
