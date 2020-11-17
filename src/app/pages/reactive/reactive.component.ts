@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-reactive',
   templateUrl: './reactive.component.html',
@@ -15,6 +16,7 @@ export class ReactiveComponent implements OnInit {
 
     this.crearFomulario();
     this.cargarDataAlFormulario();
+    this.crearListeners();
 
   }
 
@@ -45,6 +47,11 @@ export class ReactiveComponent implements OnInit {
     return this.forma.get('direccion.ciudad').invalid && this.forma.get('direccion.ciudad').touched
   }
 
+  get pass1NoValido(){
+    return this.forma.get('pass1').invalid && this.forma.get('pass1').touched; 
+  }
+
+
 
 
 
@@ -55,6 +62,8 @@ export class ReactiveComponent implements OnInit {
       nombre  : ['', [Validators.required, Validators.minLength(5)] ],
       apellido: ['', Validators.required],
       correo  : ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')] ],
+      pass1: ['', Validators.required],
+      pass2: ['', Validators.required],
       direccion : this.fb.group({
         distrito: ['', Validators.required],
         ciudad: ['', Validators.required],
@@ -62,6 +71,16 @@ export class ReactiveComponent implements OnInit {
       pasatiempos: this.fb.array([])
     });
 
+  }
+
+  crearListeners(){
+   // this.forma.valueChanges.subscribe( valor => {
+     // console.log(valor);
+    //});
+
+    //this.forma.statusChanges.subscribe(status =>console.log({status}));
+
+    this.forma.get('nombre').valueChanges.subscribe(console.log);
   }
 
   cargarDataAlFormulario(){
@@ -88,7 +107,7 @@ export class ReactiveComponent implements OnInit {
     this.pasatiempos.removeAt(i);
   }
 
-  
+
   guardar(){
     console.log(this.forma);
 

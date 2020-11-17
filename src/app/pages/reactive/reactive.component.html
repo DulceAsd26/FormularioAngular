@@ -28,7 +28,8 @@
                formControlName="apellido"
                [class.is-invalid]="apellidoNoValido">
         <small *ngIf="apellidoNoValido"
-               class="form-text text-danger">El apellido es obligatorio</small>
+               class="form-text text-danger">
+               El apellido es obligatorio</small>
       </div>
     </div>
 
@@ -44,7 +45,35 @@
              formControlName="correo"
              [class.is-invalid]="correoNoValido">
       <small *ngIf="correoNoValido"
-               class="form-text text-danger">El correo es obligatorio</small>
+               class="form-text text-danger">
+               El correo es obligatorio
+              </small>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Contraseña</label>
+    <div class="col">
+
+      <input class="form-control"
+             type="password"
+             placeholder="Ingrese contraseña"
+             formControlName="pass1"
+             [class.is-invalid]="pass1NoValido">
+     
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Verifique</label>
+    <div class="col">
+
+      <input class="form-control"
+             type="password"
+             placeholder="Ingrese de nuevo su contraseña"
+             formControlName="pass2">
+     
     </div>
   </div>
 
